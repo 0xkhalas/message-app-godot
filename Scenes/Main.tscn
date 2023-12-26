@@ -1,0 +1,55 @@
+[gd_scene load_steps=2 format=3 uid="uid://cyq2irk6hynvm"]
+
+[ext_resource type="Script" path="res://Scripts/Main.gd" id="1_uqlit"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_uqlit")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AppContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AppTitle" type="Label" parent="Panel/AppContainer"]
+layout_mode = 2
+text = "This Chat"
+horizontal_alignment = 1
+
+[node name="AppMessageScroll" type="ScrollContainer" parent="Panel/AppContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="AppMessages" type="VBoxContainer" parent="Panel/AppContainer/AppMessageScroll"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="AppInput" type="HBoxContainer" parent="Panel/AppContainer"]
+layout_mode = 2
+
+[node name="AppText" type="TextEdit" parent="Panel/AppContainer/AppInput"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Enter Your Message"
+
+[node name="AppButton" type="Button" parent="Panel/AppContainer/AppInput"]
+layout_mode = 2
+text = "Send"
+
+[connection signal="pressed" from="Panel/AppContainer/AppInput/AppButton" to="." method="_on_app_button_pressed"]
